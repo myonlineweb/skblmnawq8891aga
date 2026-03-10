@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solusi Persamaan Diferensial Parsial</title>
+    
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$']],
+                displayMath: [['$$', '$$']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 10px;
+        }
+        .question-box {
+            background-color: #e8f4f8;
+            border-left: 5px solid #3498db;
+            padding: 15px 20px;
+            margin-bottom: 30px;
+            border-radius: 4px;
+        }
+        .solution-box {
+            background-color: #fcfcfc;
+            border: 1px solid #e0e0e0;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .step {
+            margin-bottom: 20px;
+        }
+        .step-title {
+            font-weight: bold;
+            color: #2980b9;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Soal</h2>
+    <div class="question-box">
+        <p>1. Tentukan solusi umum dari PDP berikut ini.</p>
+        <p>$$z_x - 2z_y = 3x^2 \cos(y + 2x)$$</p>
+    </div>
+
+    <h2>Penyelesaian</h2>
+    <div class="solution-box">
+        <p>Persamaan di atas adalah Persamaan Diferensial Parsial (PDP) linier orde satu. Kita dapat menyelesaikannya menggunakan <strong>Metode Karakteristik</strong>.</p>
+        
+        <div class="step">
+            <div class="step-title">Langkah 1: Bentuk Persamaan Karakteristik</div>
+            <p>Bentuk umum PDP orde satu adalah $a z_x + b z_y = c$. Dari soal, kita dapatkan:</p>
+            <ul>
+                <li>$a = 1$</li>
+                <li>$b = -2$</li>
+                <li>$c = 3x^2 \cos(y + 2x)$</li>
+            </ul>
+            <p>Sistem persamaan karakteristiknya adalah:</p>
+            <p>$$\frac{dx}{1} = \frac{dy}{-2} = \frac{dz}{3x^2 \cos(y + 2x)}$$</p>
+        </div>
+
+        <div class="step">
+            <div class="step-title">Langkah 2: Selesaikan untuk kurva karakteristik (Cari $C_1$)</div>
+            <p>Ambil dua bagian pertama dari persamaan karakteristik:</p>
+            <p>$$\frac{dx}{1} = \frac{dy}{-2}$$</p>
+            <p>Kali silang dan integralkan kedua ruas:</p>
+            <p>$$-2 dx = dy$$</p>
+            <p>$$\int -2 \, dx = \int 1 \, dy$$</p>
+            <p>$$-2x = y + C_1$$</p>
+            <p>$$C_1 = y + 2x$$</p>
+            <p>Ini adalah konstanta karakteristik pertama kita.</p>
+        </div>
+
+        <div class="step">
+            <div class="step-title">Langkah 3: Selesaikan untuk $z$</div>
+            <p>Sekarang, pasangkan bagian $dx$ dengan bagian $dz$ dari persamaan karakteristik:</p>
+            <p>$$\frac{dx}{1} = \frac{dz}{3x^2 \cos(y + 2x)}$$</p>
+            <p>Substitusikan nilai konstanta $C_1 = y + 2x$ ke dalam persamaan agar kita bisa mengintegralkan terhadap $x$:</p>
+            <p>$$dz = 3x^2 \cos(C_1) \, dx$$</p>
+            <p>Integralkan kedua ruas:</p>
+            <p>$$\int dz = \int 3x^2 \cos(C_1) \, dx$$</p>
+            <p>Karena $C_1$ adalah konstanta terhadap integral $x$, kita dapatkan:</p>
+            <p>$$z = x^3 \cos(C_1) + f(C_1)$$</p>
+            <p>di mana $f$ adalah suatu fungsi sembarang.</p>
+        </div>
+
+        <div class="step">
+            <div class="step-title">Langkah 4: Tuliskan Solusi Umum</div>
+            <p>Terakhir, substitusikan kembali $C_1 = y + 2x$ ke dalam persamaan $z$ yang baru saja kita temukan:</p>
+            <p>$$z(x, y) = x^3 \cos(y + 2x) + f(y + 2x)$$</p>
+        </div>
+
+        <p><strong>Kesimpulan:</strong> Solusi umum dari PDP tersebut adalah <strong>$z = x^3 \cos(y + 2x) + f(y + 2x)$</strong>.</p>
+    </div>
+
+    <h2>Solusi Persamaan Diferensial Parsial (PDP)</h2>
+
+    <div class="question-box">
+        <strong>Soal:</strong><br>
+        2. Tentukan solusi umum dari PDP berikut ini:
+        $$ (x+y)z_x - 2z_y = 6e^{5x+2y} $$
+    </div>
+
+    <div class="solution-box">
+        <div class="step">
+            <div class="step-title">Langkah 1: Menyusun Persamaan Karakteristik</div>
+            <p>Persamaan diferensial parsial linier orde satu di atas dapat diselesaikan menggunakan metode karakteristik (Persamaan Lagrange). Bentuk umumnya adalah $P z_x + Q z_y = R$. Dari soal, kita dapat mengidentifikasi:</p>
+            <ul>
+                <li>$P = x+y$</li>
+                <li>$Q = -2$</li>
+                <li>$R = 6e^{5x+2y}$</li>
+            </ul>
+            <p>Sistem persamaan karakteristiknya adalah:</p>
+            $$ \frac{dx}{x+y} = \frac{dy}{-2} = \frac{dz}{6e^{5x+2y}} $$
+        </div>
+
+        <div class="step">
+            <div class="step-title">Langkah 2: Mencari Solusi Homogen (Kurva Karakteristik 1)</div>
+            <p>Kita selesaikan persamaan dari kombinasi pertama ($dx$ dan $dy$):</p>
+            $$ \frac{dx}{x+y} = \frac{dy}{-2} $$
+            <p>Persamaan ini dapat ditulis ulang sebagai Persamaan Diferensial Biasa (PDB) linier orde satu terhadap variabel $y$:</p>
+            $$ \frac{dx}{dy} = -\frac{1}{2}(x+y) \implies \frac{dx}{dy} + \frac{1}{2}x = -\frac{1}{2}y $$
+            <p>Faktor integrasinya adalah $I(y) = e^{\int \frac{1}{2} dy} = e^{y/2}$. Kalikan kedua ruas dengan faktor integrasi tersebut:</p>
+            $$ e^{y/2} \frac{dx}{dy} + \frac{1}{2}e^{y/2} x = -\frac{1}{2}y e^{y/2} $$
+            $$ \frac{d}{dy}(x e^{y/2}) = -\frac{1}{2}y e^{y/2} $$
+            <p>Integralkan kedua ruas terhadap $y$ (gunakan integral parsial untuk ruas kanan):</p>
+            $$ x e^{y/2} = \int -\frac{1}{2}y e^{y/2} dy = -y e^{y/2} + 2e^{y/2} + C_1 $$
+            <p>Bagi dengan $e^{y/2}$ dan susun ulang untuk mendapatkan konstanta pertama $C_1$:</p>
+            $$ x = -y + 2 + C_1 e^{-y/2} \implies x + y - 2 = C_1 e^{-y/2} $$
+            $$ C_1 = (x+y-2)e^{y/2} $$
+        </div>
+
+        <div class="step">
+            <div class="step-title">Langkah 3: Mencari Solusi Partikular (Kurva Karakteristik 2)</div>
+            <p>Sekarang kita manfaatkan sifat perbandingan fraksi. Dari $\frac{dx}{x+y} = \frac{dy}{-2}$, kita bisa menjumlahkan pembilang dan penyebutnya sehingga sama dengan fraksi ketiga:</p>
+            $$ \frac{dx + dy}{(x+y) - 2} = \frac{dz}{6e^{5x+2y}} $$
+            <p>Misalkan $u = x+y$, maka $du = dx + dy$. Persamaan menjadi lebih sederhana:</p>
+            $$ \frac{du}{u-2} = \frac{dz}{6e^{5x+2y}} $$
+            <p>Kita perlu mengubah eksponen $5x+2y$ ke dalam bentuk $u$ dan $y$. Perhatikan bahwa $5x+2y = 5(x+y) - 3y = 5u - 3y$.</p>
+            <p>Dari Langkah 2, kita tahu bahwa $C_1 = (u-2)e^{y/2}$, sehingga $e^{y/2} = \frac{C_1}{u-2}$. Maka kita bisa mendapatkan nilai eksponensial $y$:</p>
+            $$ e^{-3y} = (e^{y/2})^{-6} = \frac{(u-2)^6}{C_1^6} $$
+            <p>Substitusikan kembali ke fungsi eksponen kita:</p>
+            $$ e^{5x+2y} = e^{5u} \cdot e^{-3y} = e^{5u} \frac{(u-2)^6}{C_1^6} $$
+            <p>Sehingga persamaan diferensial untuk $dz$ dapat ditulis sebagai:</p>
+            $$ \frac{du}{u-2} = \frac{dz}{6 e^{5u} \frac{(u-2)^6}{C_1^6}} \implies dz = \frac{6}{C_1^6} e^{5u} (u-2)^5 du $$
+            <p>Integralkan kedua ruas:</p>
+            $$ z = \frac{6}{C_1^6} \int (u-2)^5 e^{5u} du + C_2 $$
+            <p>Misalkan $w = u-2$, maka $du = dw$ dan $u = w+2$. Integral tersebut dapat diselesaikan dengan metode integral parsial berulang (metode tabular):</p>
+            $$ \int w^5 e^{5(w+2)} dw = e^{10} \int w^5 e^{5w} dw = e^{10} e^{5w} P(w) $$
+            <p>Di mana polinomial $P(w)$ adalah hasil dari integrasi parsial 5 tingkat:</p>
+            $$ P(w) = \frac{w^5}{5} - \frac{w^4}{5} + \frac{4w^3}{25} - \frac{12w^2}{125} + \frac{24w}{625} - \frac{24}{3125} $$
+            <p>Substitusikan kembali semuanya. Ingat $C_1 = w e^{y/2}$, maka $C_1^6 = w^6 e^{3y}$:</p>
+            $$ z = \frac{6 \cdot e^{10} e^{5w} P(w)}{w^6 e^{3y}} + C_2 $$
+            <p>Ganti $w+2$ kembali menjadi $x+y$:</p>
+            $$ z = \frac{6 e^{5(w+2)} P(w)}{w^6 e^{3y}} + C_2 = \frac{6 e^{5(x+y)} P(x+y-2)}{(x+y-2)^6 e^{3y}} + C_2 $$
+            $$ z = 6 e^{5x+2y} \frac{P(x+y-2)}{(x+y-2)^6} + C_2 $$
+        </div>
+
+        <div class="step">
+            <div class="step-title">Langkah 4: Solusi Umum</div>
+            <p>Solusi umum PDP didapatkan dengan menyatakan $C_2 = f(C_1)$, di mana $f$ adalah suatu fungsi sebarang yang dapat didiferensialkan. Solusi akhirnya adalah:</p>
+            $$ z(x,y) = 6 e^{5x+2y} \frac{P(x+y-2)}{(x+y-2)^6} + f((x+y-2)e^{y/2}) $$
+            <p>Di mana polinomial evaluasinya adalah $P(w) = \frac{w^5}{5} - \frac{w^4}{5} + \frac{4w^3}{25} - \frac{12w^2}{125} + \frac{24w}{625} - \frac{24}{3125}$.</p>
+        </div>
+    </div>
+
+    <h2>Solusi Persamaan Diferensial Parsial (PDP)</h2>
+
+    <div class="question-box">
+        <strong>Soal 3:</strong><br>
+        3. Tentukan permukaan integral dari PDP:
+        $$ (x + z)z_x + (y + z)z_y = 0 $$
+        yang melalui kurva $x = 1 - t$, $y = 1 + t$, $z = t$.
+    </div>
+
+    <div class="solution-box">
+        <div class="step">
+            <div class="step-title">Langkah 1: Menyusun Sistem Persamaan Karakteristik (Lagrange)</div>
+            <p>Bentuk umum persamaan kuasi-linier orde satu adalah $P z_x + Q z_y = R$. Dari soal, kita dapat mengidentifikasi:</p>
+            <ul>
+                <li>$P = x + z$</li>
+                <li>$Q = y + z$</li>
+                <li>$R = 0$</li>
+            </ul>
+            <p>Sistem persamaan karakteristik Lagrange-nya adalah:</p>
+            $$ \frac{dx}{x+z} = \frac{dy}{y+z} = \frac{dz}{0} $$
+        </div>
+
+        <div class="step">
+            <div class="step-title">Langkah 2: Mencari Solusi Karakteristik ($C_1$ dan $C_2$)</div>
+            <p>Dari persamaan karakteristik tersebut, kita ambil bagian yang mengandung $dz$:</p>
+            $$ \frac{dz}{0} \implies dz = 0 $$
+            <p>Dengan mengintegralkan, kita dapatkan konstanta pertama ($C_1$):</p>
+            $$ z = C_1 $$
+            <p>Selanjutnya, substitusikan $z = C_1$ ke dalam perbandingan $dx$ dan $dy$:</p>
+            $$ \frac{dx}{x+C_1} = \frac{dy}{y+C_1} $$
+            <p>Integralkan kedua ruas:</p>
+            $$ \int \frac{1}{x+C_1} dx = \int \frac{1}{y+C_1} dy $$
+            $$ \ln|x+C_1| = \ln|y+C_1| + \ln|K| $$
+            $$ x+C_1 = K(y+C_1) $$
+            <p>Dari sini kita dapatkan konstanta kedua ($C_2$). Substitusikan kembali $C_1 = z$:</p>
+            $$ K = \frac{x+C_1}{y+C_1} \implies C_2 = \frac{x+z}{y+z} $$
+        </div>
+
+        <div class="step">
+            <div class="step-title">Langkah 3: Substitusi Kurva Awal</div>
+            <p>Kita diberikan kurva awal dalam parameter $t$: $x = 1 - t$, $y = 1 + t$, $z = t$. Substitusikan nilai-nilai ini ke dalam persamaan $C_1$ dan $C_2$ untuk mencari hubungan di antara keduanya.</p>
+            $$ C_1 = z = t $$
+            $$ C_2 = \frac{x+z}{y+z} = \frac{(1-t)+t}{(1+t)+t} = \frac{1}{1+2t} $$
+            <p>Karena $t = C_1$, kita dapat mengeliminasi $t$ dengan menyubstitusikannya ke persamaan $C_2$:</p>
+            $$ C_2 = \frac{1}{1+2C_1} $$
+        </div>
+
+        <div class="step">
+            <div class="step-title">Langkah 4: Menentukan Permukaan Integral</div>
+            <p>Untuk mendapatkan persamaan permukaan integral, substitusikan kembali $C_1 = z$ dan $C_2 = \frac{x+z}{y+z}$ ke hubungan yang ditemukan di Langkah 3:</p>
+            $$ \frac{x+z}{y+z} = \frac{1}{1+2z} $$
+            <p>Lakukan perkalian silang untuk menyederhanakan persamaannya:</p>
+            $$ (x+z)(1+2z) = y+z $$
+            $$ x + 2xz + z + 2z^2 = y + z $$
+            <p>Kurangi kedua ruas dengan $z$ dan susun ulang:</p>
+            $$ x - y + 2xz + 2z^2 = 0 $$
+            <p>Jadi, permukaan integral yang dicari adalah <strong>$x - y + 2z(x + z) = 0$</strong>.</p>
+        </div>
+    </div>
+
+    <h2>Solusi Persamaan Diferensial Parsial (PDP) Tak Homogen</h2>
+
+    <div class="question-box">
+        <strong>Soal 4:</strong><br>
+        4. Tentukan penyelesaian umum dari persamaan diferensial parsial tak homogen berikut ini dengan menggunakan metode simbolik:
+        $$ (D_x^2 - 6D_xD_y + 9D_y^2)z = xy^2 $$
+    </div>
+
+    <div class="solution-box">
+        <div class="step">
+            <div class="step-title">Langkah 1: Menentukan Fungsi Komplemen ($z_c$)</div>
+            <p>Fungsi komplemen dicari dengan menyelesaikan persamaan homogennya, yaitu menyamakan ruas kiri dengan nol:</p>
+            $$ (D_x^2 - 6D_xD_y + 9D_y^2)z = 0 $$
+            <p>Kita bentuk <strong>persamaan karakteristik (auxiliary equation)</strong> dengan mensubstitusikan $D_x = m$ dan $D_y = 1$:</p>
+            $$ m^2 - 6m + 9 = 0 $$
+            <p>Faktorkan persamaan kuadrat tersebut untuk mencari akar-akarnya:</p>
+            $$ (m - 3)(m - 3) = 0 \implies m_1 = 3, \quad m_2 = 3 $$
+            <p>Karena kita mendapatkan akar real yang kembar ($m = 3$), maka aturan pembentukan fungsi komplemennya adalah:</p>
+            $$ z_c = f_1(y + mx) + x \cdot f_2(y + mx) $$
+            $$ z_c = f_1(y + 3x) + x f_2(y + 3x) $$
+            <p><em>(di mana $f_1$ dan $f_2$ adalah fungsi sebarang)</em></p>
+        </div>
+
+        <div class="step">
+            <div class="step-title">Langkah 2: Menyusun Bentuk Integral Partikular ($z_p$)</div>
+            <p>Integral partikular dicari dengan memindahkan operator diferensial ke ruas kanan sebagai invers:</p>
+            $$ z_p = \frac{1}{D_x^2 - 6D_xD_y + 9D_y^2} (xy^2) $$
+            <p>Penyebutnya merupakan bentuk kuadrat sempurna, sehingga bisa difaktorkan menjadi:</p>
+            $$ z_p = \frac{1}{(D_x - 3D_y)^2} (xy^2) $$
+            <p>Untuk menggunakan ekspansi deret binomial, kita harus membentuk pola $(1 - X)^{-n}$. Keluarkan $D_x$ dari dalam kurung:</p>
+            $$ z_p = \frac{1}{\left[ D_x \left(1 - 3\frac{D_y}{D_x}\right) \right]^2} (xy^2) = \frac{1}{D_x^2 \left(1 - 3\frac{D_y}{D_x}\right)^2} (xy^2) $$
+            <p>Naikkan bentuk kurung ke atas sehingga pangkatnya menjadi negatif:</p>
+            $$ z_p = \frac{1}{D_x^2} \left(1 - 3\frac{D_y}{D_x}\right)^{-2} (xy^2) $$
+        </div>
+
+        <div class="step">
+            <div class="step-title">Langkah 3: Melakukan Ekspansi Deret Binomial</div>
+            <p>Ingat kembali rumus ekspansi binomial Maclaurin untuk pangkat negatif: $(1 - X)^{-2} = 1 + 2X + 3X^2 + 4X^3 + \dots$</p>
+            <p>Substitusikan $X = 3\frac{D_y}{D_x}$ ke dalam rumus tersebut:</p>
+            $$ \left(1 - 3\frac{D_y}{D_x}\right)^{-2} = 1 + 2\left(3\frac{D_y}{D_x}\right) + 3\left(3\frac{D_y}{D_x}\right)^2 + \dots $$
+            $$ \left(1 - 3\frac{D_y}{D_x}\right)^{-2} = 1 + 6\frac{D_y}{D_x} + 27\frac{D_y^2}{D_x^2} + \dots $$
+            <p><em>Catatan: Kita hanya perlu mengekspansi sampai $D_y^2$ karena fungsi kita di ruas kanan adalah $xy^2$. Turunan ketiga dari $y^2$ terhadap $y$ ($D_y^3$) akan menghasilkan 0, sehingga suku-suku berikutnya tidak perlu ditulis.</em></p>
+        </div>
+
+        <div class="step">
+            <div class="step-title">Langkah 4: Menerapkan Operator ke Fungsi di Ruas Kanan</div>
+            <p>Sekarang, kalikan hasil ekspansi di atas dengan fungsi $xy^2$. Ingat bahwa <strong>$D_y$ artinya menurunkan terhadap $y$</strong>, dan <strong>$\frac{1}{D_x}$ artinya mengintegralkan terhadap $x$</strong>.</p>
+            $$ \left( 1 + 6\frac{D_y}{D_x} + 27\frac{D_y^2}{D_x^2} \right) xy^2 $$
+            <p>Mari kita hitung satu per satu untuk setiap suku:</p>
+            <ul>
+                <li><strong>Suku Pertama ($1$):</strong> <br> $1 \cdot (xy^2) = xy^2$</li>
+                <br>
+                <li><strong>Suku Kedua ($6\frac{D_y}{D_x}$):</strong> <br> 
+                Turunkan $xy^2$ terhadap $y$: $D_y(xy^2) = 2xy$ <br>
+                Integralkan hasil di atas terhadap $x$: $\int 2xy \,dx = x^2y$ <br>
+                Kalikan dengan koefisien $6$: $6(x^2y) = 6x^2y$</li>
+                <br>
+                <li><strong>Suku Ketiga ($27\frac{D_y^2}{D_x^2}$):</strong> <br>
+                Turunkan $xy^2$ dua kali terhadap $y$: $D_y^2(xy^2) = D_y(2xy) = 2x$ <br>
+                Integralkan hasil di atas dua kali terhadap $x$: $\iint 2x \,dx \,dx = \int x^2 \,dx = \frac{1}{3}x^3$ <br>
+                Kalikan dengan koefisien $27$: $27(\frac{1}{3}x^3) = 9x^3$</li>
+            </ul>
+            <p>Gabungkan ketiga suku tersebut kembali ke dalam persamaan $z_p$:</p>
+            $$ z_p = \frac{1}{D_x^2} (xy^2 + 6x^2y + 9x^3) $$
+        </div>
+
+        <div class="step">
+            <div class="step-title">Langkah 5: Integrasi Akhir</div>
+            <p>Tersisa operator $\frac{1}{D_x^2}$ di depan. Ini berarti kita harus mengintegralkan seluruh ekspresi di dalam kurung terhadap $x$ sebanyak <strong>dua kali</strong>, dengan menganggap $y$ sebagai konstanta.</p>
+            <p><strong>Integrasi Pertama (hilangkan satu $\frac{1}{D_x}$):</strong></p>
+            $$ \frac{1}{D_x} \int (xy^2 + 6x^2y + 9x^3) \,dx = \frac{1}{D_x} \left( \frac{1}{2}x^2y^2 + 2x^3y + \frac{9}{4}x^4 \right) $$
+            <p><strong>Integrasi Kedua (menghasilkan nilai $z_p$ final):</strong></p>
+            $$ z_p = \int \left( \frac{1}{2}x^2y^2 + 2x^3y + \frac{9}{4}x^4 \right) \,dx $$
+            $$ z_p = \frac{1}{6}x^3y^2 + \frac{2}{4}x^4y + \frac{9}{20}x^5 $$
+            $$ z_p = \frac{1}{6}x^3y^2 + \frac{1}{2}x^4y + \frac{9}{20}x^5 $$
+        </div>
+
+        <div class="step">
+            <div class="step-title">Langkah 6: Penyelesaian Umum Akhir</div>
+            <p>Penyelesaian umum dari PDP tak homogen adalah gabungan dari Fungsi Komplemen dan Integral Partikularnya ($z = z_c + z_p$):</p>
+            $$ z(x,y) = f_1(y + 3x) + x f_2(y + 3x) + \frac{1}{6}x^3y^2 + \frac{1}{2}x^4y + \frac{9}{20}x^5 $$
+        </div>
+    </div>
+
+    <h2>Solusi Detail Persamaan Diferensial Parsial</h2>
+
+    <div class="question-box">
+        <strong>Soal 2:</strong><br>
+        Tentukan solusi umum dari PDP berikut ini:
+        $$ (x + y)z_x - 2z_y = 6e^{5x+2y} $$
+    </div>
+
+    <div class="solution-box">
+        <div class="step">
+            <div class="step-title">Langkah 1: Menyusun Sistem 5. Persamaan Karakteristik (Lagrange)</div>
+            <p>Bentuk umum persamaan kuasi-linier orde satu adalah $P z_x + Q z_y = R$. Dari soal, kita dapatkan:</p>
+            <ul>
+                <li>$P = x + y$</li>
+                <li>$Q = -2$</li>
+                <li>$R = 6e^{5x+2y}$</li>
+            </ul>
+            <p>Persamaan karakteristik Lagrange-nya adalah:</p>
+            $$ \frac{dx}{x+y} = \frac{dy}{-2} = \frac{dz}{6e^{5x+2y}} $$
+        </div>
+
+        <div class="step">
+            <div class="step-title">Langkah 2: Mencari Solusi Karakteristik Pertama ($u$)</div>
+            <p>Ambil perbandingan pertama dan kedua untuk mencari variabel karakteristik pertama:</p>
+            $$ \frac{dx}{x+y} = \frac{dy}{-2} $$
+            <p>Kita ubah bentuknya menjadi Persamaan Diferensial Biasa (PDB) linier orde satu. Kalikan silang:</p>
+            $$ -2 dx = (x+y) dy \implies \frac{dx}{dy} = -\frac{1}{2}(x+y) $$
+            $$ \frac{dx}{dy} + \frac{1}{2}x = -\frac{1}{2}y $$
+            <p>PDB ini memiliki faktor integrasi (FI): $e^{\int \frac{1}{2} dy} = e^{y/2}$. Kalikan seluruh ruas dengan FI tersebut:</p>
+            $$ e^{y/2} \frac{dx}{dy} + \frac{1}{2}e^{y/2} x = -\frac{1}{2} y e^{y/2} $$
+            <p>Ruas kiri sekarang merupakan bentuk turunan eksak dari aturan perkalian $(u \cdot v)'$:</p>
+            $$ \frac{d}{dy}\left(x e^{y/2}\right) = -\frac{1}{2} y e^{y/2} $$
+            <p>Integralkan kedua ruas terhadap $y$. Untuk ruas kanan, gunakan <strong>integral parsial</strong> ($\int u dv = uv - \int v du$) dengan memisalkan $u = y$ dan $dv = -\frac{1}{2} e^{y/2} dy$:</p>
+            $$ x e^{y/2} = \int -\frac{1}{2} y e^{y/2} dy $$
+            $$ x e^{y/2} = -y e^{y/2} - \int (-e^{y/2}) dy $$
+            $$ x e^{y/2} = -y e^{y/2} + 2e^{y/2} + C_1 $$
+            <p>Kelompokkan semua variabel ke satu sisi untuk mendapatkan konstanta karakteristik pertama ($C_1$):</p>
+            $$ C_1 = x e^{y/2} + y e^{y/2} - 2e^{y/2} $$
+            $$ u = e^{y/2}(x + y - 2) = C_1 $$
+        </div>
+
+        <div class="step">
+            <div class="step-title">Langkah 3: Transformasi Koordinat untuk Mencari Solusi Umum</div>
+            <p>Karena integrasi langsung untuk $dz$ cukup rumit jika melibatkan $x$ dan $y$ bersamaan, kita gunakan transformasi koordinat. Misalkan variabel baru $\xi = e^{y/2}(x + y - 2)$ dan $\eta = y$. Berdasarkan aturan rantai:</p>
+            $$ z_x = z_\xi \xi_x + z_\eta \eta_x = z_\xi (e^{y/2}) + z_\eta (0) = z_\xi e^{y/2} $$
+            $$ z_y = z_\xi \xi_y + z_\eta \eta_y = z_\xi \left[ \frac{1}{2}e^{y/2}(x+y-2) + e^{y/2}(1) \right] + z_\eta (1) = z_\xi \left( \frac{1}{2}e^{y/2}(x+y) \right) + z_\eta $$
+            <p>Substitusikan bentuk ini kembali ke PDP awal: $(x+y)z_x - 2z_y = 6e^{5x+2y}$</p>
+            $$ (x+y) \left( z_\xi e^{y/2} \right) - 2 \left( z_\xi \frac{1}{2}e^{y/2}(x+y) + z_\eta \right) = 6e^{5x+2y} $$
+            $$ (x+y)z_\xi e^{y/2} - (x+y)z_\xi e^{y/2} - 2z_\eta = 6e^{5x+2y} $$
+            <p>Suku yang mengandung $z_\xi$ akan saling menghilangkan (inilah tujuan transformasi koordinat!), menyisakan:</p>
+            $$ -2z_\eta = 6e^{5x+2y} \implies z_\eta = -3e^{5x+2y} $$
+        </div>
+
+        <div class="step">
+            <div class="step-title">Langkah 4: Integrasi Akhir</div>
+            <p>Ubah pangkat eksponensial di ruas kanan ke dalam variabel $\xi$ dan $\eta$. Dari $\eta = y$ dan $\xi = e^{\eta/2}(x+\eta-2)$, kita dapatkan $x = \xi e^{-\eta/2} - \eta + 2$. Substitusikan ini ke eksponen $5x+2y$:</p>
+            $$ 5x + 2y = 5(\xi e^{-\eta/2} - \eta + 2) + 2\eta = 5\xi e^{-\eta/2} - 3\eta + 10 $$
+            <p>Maka persamaan menjadi:</p>
+            $$ z_\eta = -3 \exp(5\xi e^{-\eta/2} - 3\eta + 10) $$
+            <p>Integralkan terhadap $\eta$ (dengan $\xi$ dianggap konstan), dan tambahkan fungsi sebarang $f(\xi)$ sebagai ganti konstanta integrasi:</p>
+            $$ z(\xi, \eta) = \int -3 \exp(5\xi e^{-\eta/2} - 3\eta + 10) \,d\eta + f(\xi) $$
+            <p>Kembalikan $\xi$ dan $\eta$ ke $x$ dan $y$. Karena bentuk integralnya sangat kompleks untuk diselesaikan secara analitik murni (non-elementer), solusi umum umumnya cukup dituliskan dalam bentuk integral tak tentu atau fungsi fungsi sembarang:</p>
+            $$ z(x,y) = f\left(e^{y/2}(x + y - 2)\right) - 3 \int e^{5x(y) + 2y} \,dy $$
+            <p><em>(Catatan: Integral dilakukan sepanjang kurva karakteristik konstan)</em></p>
+        </div>
+    </div>
+
+    <hr style="margin: 40px 0; border: 1px solid #ddd;">
+
+    <div class="question-box">
+        <strong>Soal 5:</strong><br>
+        Tentukan klasifikasi dan solusi umum dari PDP orde dua berikut ini:
+        $$ \frac{\partial^2 u}{\partial x^2} - 2 \sin x \frac{\partial^2 u}{\partial x \partial y} - \cos^2 x \frac{\partial^2 u}{\partial y^2} - \cos x \frac{\partial u}{\partial y} = 0 $$
+    </div>
+
+    <div class="solution-box">
+        <div class="step">
+            <div class="step-title">Langkah 1: Klasifikasi PDP</div>
+            <p>Bandingkan persamaan dengan bentuk umum PDB orde 2: $A u_{xx} + B u_{xy} + C u_{yy} + D u_x + E u_y + F u = G$. Kita peroleh:</p>
+            <ul>
+                <li>$A = 1$</li>
+                <li>$B = -2 \sin x$</li>
+                <li>$C = -\cos^2 x$</li>
+            </ul>
+            <p>Hitung nilai Diskriminannya ($\Delta = B^2 - 4AC$):</p>
+            $$ \Delta = (-2 \sin x)^2 - 4(1)(-\cos^2 x) $$
+            $$ \Delta = 4 \sin^2 x + 4 \cos^2 x = 4(\sin^2 x + \cos^2 x) $$
+            <p>Karena identitas trigonometri $\sin^2 x + \cos^2 x = 1$, maka $\Delta = 4(1) = 4$.</p>
+            <p>Karena $\Delta = 4 > 0$ di semua titik, persamaan ini terklasifikasi sebagai <strong>Hiperbolik</strong>.</p>
+        </div>
+
+        <div class="step">
+            <div class="step-title">Langkah 2: Menentukan Persamaan Karakteristik</div>
+            <p>Untuk PDP hiperbolik, akar-akar karakteristiknya dicari dengan rumus $\frac{dy}{dx} = \frac{B \pm \sqrt{\Delta}}{2A}$:</p>
+            $$ \frac{dy}{dx} = \frac{-2 \sin x \pm \sqrt{4}}{2(1)} = \frac{-2 \sin x \pm 2}{2} = -\sin x \pm 1 $$
+            <p>Kita dapatkan dua persamaan PDB:</p>
+            <ol>
+                <li>$\frac{dy}{dx} = -\sin x + 1 \implies dy = (1 - \sin x)dx \implies y = x + \cos x + C_1$</li>
+                <li>$\frac{dy}{dx} = -\sin x - 1 \implies dy = (-1 - \sin x)dx \implies y = -x + \cos x + C_2$</li>
+            </ol>
+            <p>Dari sini kita definisikan variabel kanonik baru $\xi$ dan $\eta$:</p>
+            $$ \xi = y - x - \cos x $$
+            $$ \eta = y + x - \cos x $$
+        </div>
+
+        <div class="step">
+            <div class="step-title">Langkah 3: Transformasi Turunan Menggunakan Aturan Rantai</div>
+            <p>Kita perlu mencari turunan parsial $\xi$ dan $\eta$ terhadap $x$ dan $y$:</p>
+            <ul>
+                <li>$\xi_x = -1 + \sin x$ , $\xi_y = 1$, $\xi_{xx} = \cos x$, $\xi_{yy} = 0$, $\xi_{xy} = 0$</li>
+                <li>$\eta_x = 1 + \sin x$ , $\eta_y = 1$, $\eta_{xx} = \cos x$, $\eta_{yy} = 0$, $\eta_{xy} = 0$</li>
+            </ul>
+            <p>Selanjutnya, bentuk turunan $u$ ke dalam variabel kanonik ($u_\xi, u_\eta$):</p>
+            $$ u_y = u_\xi \xi_y + u_\eta \eta_y = u_\xi(1) + u_\eta(1) = u_\xi + u_\eta $$
+            $$ u_{yy} = u_{\xi\xi}(\xi_y)^2 + 2u_{\xi\eta}(\xi_y \eta_y) + u_{\eta\eta}(\eta_y)^2 = u_{\xi\xi} + 2u_{\xi\eta} + u_{\eta\eta} $$
+            $$ u_{xy} = u_{\xi\xi}(\xi_x \xi_y) + u_{\xi\eta}(\xi_x \eta_y + \xi_y \eta_x) + u_{\eta\eta}(\eta_x \eta_y) + u_\xi \xi_{xy} + u_\eta \eta_{xy} $$
+            $$ u_{xy} = u_{\xi\xi}(-1 + \sin x) + u_{\xi\eta}(-1 + \sin x + 1 + \sin x) + u_{\eta\eta}(1 + \sin x) $$
+            $$ u_{xy} = (\sin x - 1)u_{\xi\xi} + 2\sin x \,u_{\xi\eta} + (\sin x + 1)u_{\eta\eta} $$
+            $$ u_{xx} = u_{\xi\xi}(\xi_x)^2 + 2u_{\xi\eta}(\xi_x \eta_x) + u_{\eta\eta}(\eta_x)^2 + u_\xi \xi_{xx} + u_\eta \eta_{xx} $$
+            $$ u_{xx} = (\sin x - 1)^2 u_{\xi\xi} + 2(\sin^2 x - 1) u_{\xi\eta} + (\sin x + 1)^2 u_{\eta\eta} + \cos x \, u_\xi + \cos x \, u_\eta $$
+        </div>
+
+        <div class="step">
+            <div class="step-title">Langkah 4: Substitusi ke PDP Awal dan Bentuk Kanonik</div>
+            <p>Masukkan semua hasil turunan di atas ke PDP awal: $u_{xx} - 2\sin x \, u_{xy} - \cos^2 x \, u_{yy} - \cos x \, u_y = 0$. Mari kita kumpulkan berdasarkan koefisiennya:</p>
+            <ul>
+                <li><strong>Koefisien $u_{\xi\xi}$:</strong> $(\sin x - 1)^2 - 2\sin x(\sin x - 1) - \cos^2 x(1) = (\sin^2 x - 2\sin x + 1) - 2\sin^2 x + 2\sin x - \cos^2 x = -\sin^2 x + 1 - \cos^2 x = 0$</li>
+                <li><strong>Koefisien $u_{\eta\eta}$:</strong> $(\sin x + 1)^2 - 2\sin x(\sin x + 1) - \cos^2 x(1) = (\sin^2 x + 2\sin x + 1) - 2\sin^2 x - 2\sin x - \cos^2 x = -\sin^2 x + 1 - \cos^2 x = 0$</li>
+                <li><strong>Koefisien $u_{\xi\eta}$:</strong> $2(\sin^2 x - 1) - 2\sin x(2\sin x) - \cos^2 x(2) = 2\sin^2 x - 2 - 4\sin^2 x - 2\cos^2 x = -2\sin^2 x - 2 - 2\cos^2 x = -2(\sin^2 x + \cos^2 x) - 2 = -2 - 2 = -4$</li>
+                <li><strong>Koefisien orde satu ($u_\xi, u_\eta$):</strong> $\cos x (u_\xi + u_\eta) - \cos x (u_\xi + u_\eta) = 0$</li>
+            </ul>
+            <p>Sungguh indah, semua koefisien kecuali $u_{\xi\eta}$ saling menghilangkan! PDP kanoniknya menjadi sangat sederhana:</p>
+            $$ -4 u_{\xi\eta} = 0 \implies u_{\xi\eta} = 0 $$
+        </div>
+
+        <div class="step">
+            <div class="step-title">Langkah 5: Penyelesaian Umum</div>
+            <p>Untuk menyelesaikan $u_{\xi\eta} = 0$, integralkan persamaan tersebut secara berurutan:</p>
+            <p>1. Integralkan terhadap $\eta$ (menganggap $\xi$ konstan):</p>
+            $$ u_\xi = f(\xi) $$
+            <p>2. Integralkan terhadap $\xi$ (menganggap $\eta$ konstan):</p>
+            $$ u(\xi, \eta) = \int f(\xi) d\xi + G(\eta) = F(\xi) + G(\eta) $$
+            <p>Terakhir, substitusikan kembali nilai $\xi$ dan $\eta$ awal ke dalam persamaan untuk mendapatkan solusi akhir dalam $x$ dan $y$:</p>
+            $$ u(x,y) = F(y - x - \cos x) + G(y + x - \cos x) $$
+            <p><em>(di mana $F$ dan $G$ adalah fungsi sembarang yang dapat diturunkan dua kali)</em></p>
+        </div>
+    </div>
+
+</body>
+</html>
